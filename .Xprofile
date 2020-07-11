@@ -1,25 +1,16 @@
-# .Xprofile created 10-30-2019
+# .xprofile
 # sourced by .xinitrc
 # common items to start with window manager
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# kill some applications that may be resident in memory
 killall -q conky &
 killall -q i3status &
 killall -q slstatus &
 killall -q sxhkd &
+
 killall -q polybar &
 killall -q juiced &
-
-# Qt5 configuration; Qt apps follow gtk2
-export QT_STYLE_OVERRIDE=GTK+
-export QT_QPA_PLATFORMTHEME=gtk2
-export QT_PLATFORMTHEME=gtk2
-export QT_PLATFORM_PLUGIN=gtk2
-
-# load urxvtd
-# exec urxvtd -q -o -f &
 
 # turn on numblock/numberpad by default
 numlockx on &
@@ -48,15 +39,16 @@ xset dpms 5400 6300 7200
 # mouse acceleration
 xset m 1/1
 
-# bspwm requires this - can be run from bspwmrc; doesn't seem to matter for rest
-xsetroot -cursor_name left_ptr &
-
 # battery monitor
 (sleep 2s && juiced -d) &
 
 # background
 xsetroot -solid "#130F4B" &
 
-# set wallpaper for all window manager logins; can also use feh, nitrogen etc ..
+# uncomment to set wallpaper for all window manager logins 
 # fbsetbg -c -r "$HOME/wallpaper/" &
+# "$HOME/.behbg" &
+# nitrogen --restore &
 
+# PATH set in .profile when logging in; uncomment if using display manager
+#PATH=$PATH:~/conky:./
